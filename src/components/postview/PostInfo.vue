@@ -37,12 +37,17 @@ export default {
     },
     methods: {
         getInfo() {
-            console.log('getInfo:')
-            setTimeout(()=>{
+            // console.log('getInfo:')
+            // console.log(this.$route.query)
+            // setTimeout(()=>{
                 this.info = {
-                    title: "获取待发送的信息获取待发送的信息",
-                    url: "https://www.iviewui.com/components/input11111"
+                    title: this.$route.query.content.replace(/(\"|\')/g,""),
+                    url: this.$route.query.link.replace(/(\"|\')/g,"")
                 }
+                // this.info = {
+                //     title: "获取待发送的信息",
+                //     url: "https://inteam.hubpd.com/"
+                // }
                 // this.$http.get('/api/info/', {
                 // }).then((response) => {
                     // this.datavalue = response.data
@@ -55,7 +60,7 @@ export default {
                 // this.$emit('valueDescribe',this.info);
                 // console.log("获取待发送的信息: "+ JSON.stringify( this.datavalue))
                 this.changeDescribe()
-            },500)
+            // },500)
         },
         changeDescribe() {
             // console.log('changeDescribe:'+JSON.stringify(value))
