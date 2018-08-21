@@ -40,9 +40,16 @@ export default {
             // console.log('getInfo:')
             // console.log(this.$route.query)
             // setTimeout(()=>{
-                this.info = {
-                    title: this.$route.query.content.replace(/(\"|\')/g,""),
-                    url: this.$route.query.link.replace(/(\"|\')/g,"")
+                if (this.$route.query.content&&this.$route.query.link) {
+                    this.info = {
+                        title: this.$route.query.content.replace(/(\"|\')/g,""),
+                        url: this.$route.query.link.replace(/(\"|\')/g,"")
+                    }
+                } else {
+                    this.info = {
+                        title: "获取待发送的信息",
+                        url: "https://inteam.hubpd.com/"
+                    }
                 }
                 // this.info = {
                 //     title: "获取待发送的信息",
