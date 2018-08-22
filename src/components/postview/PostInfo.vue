@@ -8,8 +8,8 @@
             </div>
         </Col>
         <Col span="20">
-            <div class="title">{{info.title}}</div>
-            <div class="url">{{info.url}}</div>
+            <div class="title">{{info.content}}</div>
+            <div class="url">{{info.link}}</div>
         </Col>
         </Row>
         <Row>
@@ -22,6 +22,7 @@
 
 <script>
 import { store } from './../../services'
+import config from './../../config'
 
 export default {
     data () {
@@ -40,15 +41,20 @@ export default {
             // console.log('getInfo:')
             // console.log(this.$route.query)
             // setTimeout(()=>{
-                if (this.$route.query.content&&this.$route.query.link) {
+                if (this.$route.query.content&&this.$route.query.link&&this.$route.query.client_id) {
+                    let _link = this.$route.query.link.replace(/(\"|\')/g,"")
                     this.info = {
-                        title: this.$route.query.content.replace(/(\"|\')/g,""),
-                        url: this.$route.query.link.replace(/(\"|\')/g,"")
+                        'content': this.$route.query.content.replace(/(\"|\')/g,""),
+                        'link': _link,
+                        'authUrl': `${config.host}/pdmi/app/authorize?next_url=${encodeURIComponent(_link)}`,
+                        'client_id': this.$route.query.client_id.replace(/(\"|\')/g,""),
                     }
                 } else {
                     this.info = {
-                        title: "获取待发送的信息",
-                        url: "https://inteam.hubpd.com/"
+                        'content': "获取待发送的信息",
+                        'link': "https://inteam.hubpd.com/",
+                        'authUrl': `${config.host}/pdmi/app/authorize?next_url=${encodeURIComponent("https://inteam.hubpd.com/")}`,
+                        'client_id': '666',
                     }
                 }
                 // this.info = {

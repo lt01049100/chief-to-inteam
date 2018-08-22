@@ -180,8 +180,8 @@ export default {
             if (this.isPosting) return
             this.isPosting = true
             const selectedItems = store.state.selectedItem
-            let _info = store.state.info.title +' '
-                        + store.state.info.url +' '
+            let _info = store.state.info.content +'\n'
+                        + store.state.info.authUrl +'\n'
                         + store.state.info.describe
             // console.log('_info: '+_info)
             if (selectedItems.size <= 0) return
@@ -214,7 +214,8 @@ export default {
                             'objectType': 'ChatMessage',
                             'updated':"",
                             '_boundToObjectId': roomId,
-                            '_creatorId': store.state.user._id
+                            '_creatorId': store.state.user._id,
+                            'sourceType': store.state.info.client_id
                         }
                         chatMessageAPI.postMessage(roomId, body)
                         .then(() => {
