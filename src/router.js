@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import { TagChatView, TagProjectView, TagOrganizationView } from './components'
+import { TagChatView, TagProjectView } from './components'
 
 // children view
 // import RecentList from './components/common/recentList' //最近列表
@@ -31,14 +31,6 @@ const routes = [
     },
     component: TagProjectView,
   },
-  // {
-  //   path: '/tagOrganizationProject',
-  //   name: 'organization-view',
-  //   meta: {
-  //       title: '分享到机构任务组',
-  //   },
-  //   component: TagOrganizationView,
-  // },
   {
     path: '*',
     redirect: { path: '/tagChat' }
