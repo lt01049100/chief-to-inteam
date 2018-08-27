@@ -128,6 +128,8 @@ import SelectCell from "./../common/selectCell";
 // 三级联动
 import ItemGroup from "./../common/itemGroup";
 
+import { preText } from './../../config'
+
 export default {
     data () {
         return {
@@ -414,7 +416,8 @@ export default {
             if (this.isPosting) return
             this.isPosting = true
             const selectedItems = store.state.selectedItem
-            let _info = store.state.info.content +'\n'
+            let _info = preText +'\n'
+                    + store.state.info.content +'\n'
                     + store.state.info.authUrl +'\n'
                     + store.state.info.describe
             // console.log('store.state.info: '+JSON.stringify(store.state.info))
@@ -456,8 +459,9 @@ export default {
                 } else if(this.isProjectsGroups) {
                     if (this.isAllow) {
                         let taskId = obj._id
-                        let _info = store.state.info.title +' '
-                                + store.state.info.url +' '
+                        let _info = preText +'\n'
+                                + store.state.info.content +'\n'
+                                + store.state.info.authUrl +'\n'
                                 + store.state.info.describe
                         let body = {
                             'objectType': 'ChatMessage',

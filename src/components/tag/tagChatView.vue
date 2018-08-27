@@ -50,6 +50,8 @@ import Search from "./../common/search";
 // 选中
 import SelectCell from "./../common/selectCell";
 
+import { preText } from './../../config'
+
 export default {
     data () {
         return {
@@ -180,7 +182,8 @@ export default {
             if (this.isPosting) return
             this.isPosting = true
             const selectedItems = store.state.selectedItem
-            let _info = store.state.info.content +'\n'
+            let _info = preText +'\n'
+                        + store.state.info.content +'\n'
                         + store.state.info.authUrl +'\n'
                         + store.state.info.describe
             // console.log('_info: '+_info)
