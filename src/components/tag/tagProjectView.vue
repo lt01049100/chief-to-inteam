@@ -436,7 +436,7 @@ export default {
                             let body = {
                                 'attachments': [],
                                 'boundToObjectType':"room",
-                                'content':_info,
+                                'content': _info,
                                 'created':"",
                                 'mentions':{},
                                 'objectType': 'ChatMessage',
@@ -460,14 +460,10 @@ export default {
                 } else if(this.isProjectsGroups) {
                     if (this.isAllow) {
                         let taskId = obj._id
-                        let _info = ''
-                                // + preText +'\n'
-                                + store.state.info.content +'\n'
-                                + store.state.info.authUrl +'\n'
-                                + store.state.info.describe
+                        
                         let body = {
                             'objectType': 'ChatMessage',
-                            'content':_info,
+                            'content': _info,
                             'mentions':{}
                         }
                         chatMessageAPI.postTaskMessage(taskId, body)

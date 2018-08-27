@@ -212,7 +212,7 @@ export default {
                         let body = {
                             'attachments': [],
                             'boundToObjectType':"room",
-                            'content':_info,
+                            'content': _info,
                             'created':"",
                             'mentions':{},
                             'objectType': 'ChatMessage',
