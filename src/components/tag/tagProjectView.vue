@@ -416,7 +416,8 @@ export default {
             if (this.isPosting) return
             this.isPosting = true
             const selectedItems = store.state.selectedItem
-            let _info = preText +'\n'
+            let _info = ''
+                    // + preText +'\n'
                     + store.state.info.content +'\n'
                     + store.state.info.authUrl +'\n'
                     + store.state.info.describe
@@ -459,7 +460,8 @@ export default {
                 } else if(this.isProjectsGroups) {
                     if (this.isAllow) {
                         let taskId = obj._id
-                        let _info = preText +'\n'
+                        let _info = ''
+                                // + preText +'\n'
                                 + store.state.info.content +'\n'
                                 + store.state.info.authUrl +'\n'
                                 + store.state.info.describe
